@@ -58,14 +58,14 @@ long long solution(string expression) {
                     else if(order[i]=='-'){
                         num[j]= a-b; 
                     }
-                    num.erase(num.begin()+j+1,num.begin()+j+2); 
-                    op.erase(op.begin()+j, op.begin()+j+1);  
+                    num.erase(num.begin()+j+1); 
+                    op.erase(op.begin()+j);  
                     j--;
                 }
             }
         }
         answer= max(answer, (long long)abs(num[0]));
-        num.erase(num.begin(),num.begin()+1); 
+        num.erase(num.begin()); 
         intcopy(num, temp); 
         charcopy(op, top);
     }
