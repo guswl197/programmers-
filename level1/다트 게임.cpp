@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
+//
 int sum[3]= {0,0,0}; 
 
 int solution(string dartResult) {
@@ -48,9 +50,6 @@ int solution(string dartResult) {
 }
 
 /*
-#include <bits/stdc++.h>
-
-using namespace std;
 vector<int> v; 
 
 int solution(string dartResult) {
