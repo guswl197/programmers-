@@ -1,23 +1,18 @@
-#include <string>
-#include <vector>
-#include <regex>
+#include <bits/stdc++.h>
 
 using namespace std;
 
+vector<string> cnumber= {"zero", "one","two", "three", "four","five", "six", "seven", "eight", "nine" }; 
+vector<string> number = {"0", "1", "2","3", "4", "5", "6", "7" ,"8", "9"}; 
 int solution(string s) {
+    ios::sync_with_stdio(0);
+	cin.tie(0);
     int answer = 0;
+     
+    for(int i=0; i<10; i++){
+        s= regex_replace(s, regex(cnumber[i]), number[i]); 
+    }
     
-    s= regex_replace(s, regex("zero"), "0"); 
-    s= regex_replace(s, regex("one"), "1"); 
-    s= regex_replace(s, regex("two"), "2"); 
-    s= regex_replace(s, regex("three"), "3"); 
-    s= regex_replace(s, regex("four"), "4"); 
-    s= regex_replace(s, regex("five"), "5"); 
-    s= regex_replace(s, regex("six"), "6"); 
-    s= regex_replace(s, regex("seven"), "7"); 
-    s= regex_replace(s, regex("eight"), "8"); 
-    s= regex_replace(s, regex("nine"), "9"); 
-    
-    answer= stoi(s);
+    answer= stoi(s); 
     return answer;
 }
