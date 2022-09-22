@@ -1,29 +1,33 @@
-#include <string>
-#include <vector> 
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
-vector<int> v; 
+
+stack<int> st; 
+int ans; 
 
 int solution(vector<vector<int>> board, vector<int> moves) {
-    int answer = 0;
+    ios::sync_with_stdio(0);
+	cin.tie(0);
+    int len = board[0].size(); 
     
     for(int i=0; i<moves.size(); i++){
-        int pos= moves[i]; 
-        for(int j=0; j<board.size(); j++){
-            if(board[j][pos-1]>0){
-                v.push_back(board[j][pos-1]);
-                board[j][pos-1]=0; 
-                break; 
+        for(int j=0; j<len; j++){
+            if(board[j][moves[i]-1]>0){
+                int num = board[j][moves[i]-1]; 
+                board[j][moves[i]-1]=0; 
+                
+                if(!st.empty() && st.top() == num){
+                    st.pop(); 
+                    ans+=2; 
+                    break; 
+                }
+                else {
+                    st.push(num); 
+                    break;
+                }
             }
         }
-        
-        //인형 터트리기
-        if(v[v.size()-1] ==v[v.size()-2] ){
-            v.resize(v.size()-2); 
-            answer+=2; 
-        }
     }
-    
-    return answer;
+ 
+    return ans;
 }
